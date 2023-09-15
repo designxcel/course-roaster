@@ -13,7 +13,15 @@ const Home = () => {
     },[])
 
     const handleCourse =(course) =>{
-        setSelectedCourse([...selectedCourse, course])
+        const isExist = selectedCourse.find(item => item.id == course.id)
+        if(isExist)
+        {
+            alert ("Course already taken! Try different course.")
+        }
+        else{
+            setSelectedCourse([...selectedCourse, course])
+        }
+        
     }
     return (
         <div>
