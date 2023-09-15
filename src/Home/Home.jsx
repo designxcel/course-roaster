@@ -29,7 +29,7 @@ const Home = () => {
                 count = count + item.credit;
                 amountCount = amountCount + item.price;
             })
-            // console.log(amountCount)
+            
             const maxCredit = 20 - count;
             console.log(maxCredit)
             if(count > 20){
@@ -46,15 +46,15 @@ const Home = () => {
         
     }
     return (
-        <div className="bg-slate-200 max-w-[1350px] mx-auto p-5">
+        <div className="bg-slate-200 lg:max-w-[1350px] mx-auto p-5">
             <h1 className="font-bold text-4xl text-center mb-8">Course Registration</h1>
             <div className="flex flex-col md:flex-row gap-5">
-                <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
                     {
                         courses.map(course => (
-                            <div className="w-[315px] h-[402px] bg-white p-4 rounded-lg space-y-4">
-                        <div>
-                            <img className="w-[280px] h-[144px] rounded-lg" src={course.image} alt="" />
+                            <div className="lg:w-[315px] h-[402px] bg-white p-4 rounded-lg space-y-4">
+                        <div className="">
+                            <img className="w-full h-[144px] rounded-lg" src={course.image} alt="" />
                         </div>
                         <h2 className="font-bold text-lg">{course.title}</h2>
                         <p className="text-sm">{course.desc}</p>
