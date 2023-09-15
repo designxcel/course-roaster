@@ -7,6 +7,7 @@ const Home = () => {
     const [selectedCourse, setSelectedCourse] = useState([])
     const [totalCredit, setTotalCredit] = useState(0)
     const [remainingCredit, setRemainingCredit] = useState(0)
+    const [courseAmount, setCourseAmount] = useState(0)
 
     useEffect(()=>{
         fetch('course.json')
@@ -17,6 +18,7 @@ const Home = () => {
     const handleCourse =(course) =>{
         const isExist = selectedCourse.find(item => item.id == course.id)
         let count = course.credit;
+        let amountCount = course.price;
         if(isExist)
         {
             alert ("Course already taken! Try different course.")
@@ -24,12 +26,16 @@ const Home = () => {
         else{
             selectedCourse.forEach((item)=>{
                 count = count + item.credit;
+                amountCount = amountCount + item.price;
             })
+            // console.log(amountCount)
             const maxCredit = 20 - count;
+            console.log(maxCredit)
             if(count > 20){
                 return alert("Your total credit can't exceed over 20 credit!")
             }
             else{
+                setCourseAmount(amountCount)
                 setRemainingCredit(maxCredit)
                 setTotalCredit(count)
                 setSelectedCourse([...selectedCourse, course])
@@ -68,6 +74,7 @@ const Home = () => {
                     selectedCourse={selectedCourse}
                     totalCredit={totalCredit}
                     remainingCredit={remainingCredit}
+                    courseAmount={courseAmount}
                     ></Cart>
                 </div>
             </div>
