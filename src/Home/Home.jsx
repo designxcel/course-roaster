@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FaBook } from 'react-icons/fa';
 import Cart from '../Cart/Cart';
+import swal from 'sweetalert';
 
 const Home = () => {
     const [courses, setCourses] = useState([])
@@ -21,7 +22,7 @@ const Home = () => {
         let amountCount = course.price;
         if(isExist)
         {
-            alert ("Course already taken! Try different course.")
+            swal ("Oops!", "Course already taken! Try different course.", "error")
         }
         else{
             selectedCourse.forEach((item)=>{
@@ -32,7 +33,7 @@ const Home = () => {
             const maxCredit = 20 - count;
             console.log(maxCredit)
             if(count > 20){
-                return alert("Your total credit can't exceed over 20 credit!")
+                return swal("Oops!", "Your total credit can't exceed over 20 credit!", "error")
             }
             else{
                 setCourseAmount(amountCount)
@@ -45,13 +46,13 @@ const Home = () => {
         
     }
     return (
-        <div>
-            <h1>Course Registration</h1>
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between">
+        <div className="bg-slate-200 max-w-[1350px] mx-auto p-5">
+            <h1 className="font-bold text-4xl text-center mb-8">Course Registration</h1>
+            <div className="flex flex-col md:flex-row gap-5">
                 <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-3">
                     {
                         courses.map(course => (
-                            <div className="w-[315px] h-[402px] bg-slate-200 p-4 rounded-lg space-y-4">
+                            <div className="w-[315px] h-[402px] bg-white p-4 rounded-lg space-y-4">
                         <div>
                             <img className="w-[280px] h-[144px] rounded-lg" src={course.image} alt="" />
                         </div>
