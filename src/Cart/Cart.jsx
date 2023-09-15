@@ -1,6 +1,6 @@
 
 
-const Cart = ({selectedCourse, totalCredit}) => {
+const Cart = ({selectedCourse, totalCredit, remainingCredit}) => {
     return (
         <div>
             
