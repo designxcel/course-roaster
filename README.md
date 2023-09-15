@@ -26,7 +26,4 @@ state 4: remainingCredit : when you select the course, you will have total 20 cr
 
 state 5: courseAmount : When you purchase the couse, it will have a total amount of money. which is shown by this state. 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
